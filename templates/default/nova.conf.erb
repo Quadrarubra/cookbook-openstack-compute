@@ -21,6 +21,11 @@ ssl_only=<%= node['openstack']['compute']['ssl_only'] %>
 cert=<%= node['openstack']['compute']['cert'] %>
 key=<%= node['openstack']['compute']['key'] %>
 
+# Enable SSL for API
+ssl_ca_file=<%= node['openstack']['compute']['ca'] %>
+ssl_cert_file=<%= node['openstack']['compute']['cert'] %>
+ssl_key_file=<%= node['openstack']['compute']['key'] %>
+
 # Command prefix to use for running commands as root (default: sudo)
 rootwrap_config=/etc/nova/rootwrap.conf
 
@@ -265,6 +270,7 @@ keystone_ec2_url=<%= @identity_endpoint.scheme %>://<%= @identity_endpoint.host 
 
 # a list of APIs to enable by default (list value)
 enabled_apis=<%= node["openstack"]["compute"]["enabled_apis"] %>
+enabled_ssl_apis=<%= node["openstack"]["compute"]["enabled_ssl_apis"] %>
 
 ##### WORKERS ######
 <% if node["openstack"]["compute"]["osapi_compute_workers"] %>
