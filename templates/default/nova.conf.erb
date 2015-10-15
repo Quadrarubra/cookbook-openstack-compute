@@ -61,10 +61,9 @@ scheduler_host_manager=<%= node["openstack"]["compute"]["scheduler"]["scheduler_
 ##### NETWORK #####
 
 
-<% case node["openstack"]["compute"]["network"]["service_type"]
+<% case node["openstack"]["compute"]["network"]["service_type"] 
 
-when "neutron" -%>
-
+  when "neutron" -%>
 network_api_class=<%= node["openstack"]["compute"]["network"]["neutron"]["network_api_class"]  %>
 linuxnet_interface_driver=<%= node["openstack"]["compute"]["network"]["neutron"]["linuxnet_interface_driver"] %>
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
@@ -78,14 +77,16 @@ network_manager=<%= node["openstack"]["compute"]["network"]["network_manager"] %
 public_interface=<%= node["openstack"]["compute"]["network"]["public_interface"] %>
 dmz_cidr=<%= node["openstack"]["compute"]["network"]["dmz_cidr"] %>
 force_dhcp_release=<%= node["openstack"]["compute"]["network"]["force_dhcp_release"] %>
-<% if node["openstack"]["compute"]["dhcp_domain"] -%>
-dhcp_domain=<%= node["openstack"]["compute"]["dhcp_domain"] %>
-<% end %>
 send_arp_for_ha=true
 use_single_default_gateway=<%= node["openstack"]["compute"]["network"]["use_single_default_gateway"] %>
 vlan_interface=<%= node["openstack"]["compute"]["network"]["vlan_interface"] %>
 auto_assign_floating_ip=<%= node["openstack"]["compute"]["network"]["auto_assign_floating_ip"] %>
 <% end -%>
+
+<% if node["openstack"]["compute"]["dhcp_domain"] -%>
+dhcp_domain=<%= node["openstack"]["compute"]["dhcp_domain"] %>
+<% end %>
+
 use_ipv6=<%= node["openstack"]["compute"]["network"]["use_ipv6"] %>
 
 ##### GLANCE #####
