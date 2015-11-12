@@ -103,6 +103,10 @@ vif_plugging_is_fatal=<%= node["openstack"]["compute"]["vif_plugging_is_fatal"] 
 vif_plugging_timeout=<%= node["openstack"]["compute"]["vif_plugging_timeout"] %>
 compute_manager=<%= node["openstack"]["compute"]["manager"] %>
 connection_type=libvirt
+<% if node["openstack"]["compute"]["libvirt"]["libvirt_inject_password"] %>
+enable_instance_password=True
+<% end %>
+
 
 ##### NOTIFICATIONS #####
 <% if node['openstack']['compute']['config']['notification_drivers'] %>
