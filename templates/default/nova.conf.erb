@@ -18,11 +18,12 @@ instance_name_template=<%= node["openstack"]["compute"]["instance_name_template"
 network_allocate_retries=<%= node['openstack']['compute']['network_allocate_retries'] %>
 
 ssl_only=<%= node['openstack']['compute']['ssl_only'] %>
+ca_file=<%= node['openstack']['compute']['ca'] %>
 cert=<%= node['openstack']['compute']['cert'] %>
+key_file=<%= node['openstack']['compute']['key'] %>
 key=<%= node['openstack']['compute']['key'] %>
 
 # Enable SSL for API
-ssl_ca_file=<%= node['openstack']['compute']['ca'] %>
 ssl_cert_file=<%= node['openstack']['compute']['cert'] %>
 ssl_key_file=<%= node['openstack']['compute']['key'] %>
 
