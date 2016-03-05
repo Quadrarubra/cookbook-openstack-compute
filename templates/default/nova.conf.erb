@@ -62,9 +62,8 @@ scheduler_host_manager=<%= node["openstack"]["compute"]["scheduler"]["scheduler_
 ##### NETWORK #####
 
 
-<% case node["openstack"]["compute"]["network"]["service_type"] -%>
-
-<% when "neutron" -%>
+<% case node["openstack"]["compute"]["network"]["service_type"]
+   when "neutron" -%>
 network_api_class=<%= node["openstack"]["compute"]["network"]["neutron"]["network_api_class"]  %>
 linuxnet_interface_driver=<%= node["openstack"]["compute"]["network"]["neutron"]["linuxnet_interface_driver"] %>
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
